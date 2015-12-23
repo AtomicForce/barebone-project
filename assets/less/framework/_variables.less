@@ -1,0 +1,46 @@
+// ==========================================================================
+// Variables
+// ==========================================================================
+
+// base url
+@baseUrl: '/assets/less';
+
+// Breakpoints
+@w480:  ~' (min-width: 480px)';
+@w640:  ~' (min-width: 640px)';
+@w768:  ~' (min-width: 768px)';
+@w1024: ~' (min-width: 1024px)';
+@w1200: ~' (min-width: 1200px)';
+@w1366: ~' (min-width: 1366px)';
+@w1600: ~' (min-width: 1600px)';
+
+// Typography
+
+// Font, line-height, and color for body text, headings, and more.
+
+@font-family-sans-serif:  "Helvetica Neue", Helvetica, Arial, sans-serif;
+@font-family-serif:       Georgia, "Times New Roman", Times, serif;
+
+@font-size-base:            14px;
+@headings-size-base-step:   2;
+@headings-size-step:        4;
+@font-size-large:         ceil((@font-size-base * 1.25)); // ~18px
+@font-size-small:         ceil((@font-size-base * 0.85)); // ~12px
+
+@font-size-h1: (@font-size-base + 5 * @headings-size-base-step);
+@font-size-h2: (@font-size-base + 4 * @headings-size-base-step);
+@font-size-h3: (@font-size-base + 3 * @headings-size-base-step);
+@font-size-h4: (@font-size-base + 2 * @headings-size-base-step);
+@font-size-h5: (@font-size-base + 1 * @headings-size-base-step);
+@font-size-h6:  @font-size-base;
+
+//** Unit-less `line-height` for use in components like buttons.
+@line-height-base:        1.428571429; // 20/14
+//** Computed "line-height" (`font-size` * `line-height`) for use with `margin`, `padding`, etc.
+@line-height-computed:    floor((@font-size-base * @line-height-base)); // ~20px
+
+//** By default, this inherits from the `<body>`.
+@headings-font-family:    inherit;
+@headings-font-weight:    300;
+@headings-line-height:    1.1;
+@headings-color:          inherit;

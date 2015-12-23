@@ -1,0 +1,277 @@
+// ==========================================================================
+// Mixins
+// ==========================================================================
+
+// Arrow up from border
+.arrow-up(@size: 5px, @color: @black) {
+    width: 0;
+    height: 0;
+    border-left: @size solid transparent;
+    border-right: @size solid transparent;
+
+    border-bottom: @size solid @color;
+}
+
+// Border Solid
+.border(@size:1px, @type:solid, @color:#cacaca) {
+    border: @size @type @color;
+}
+
+// Border radius
+.border-radius(@radius) {
+    -webkit-border-radius: @radius;
+       -moz-border-radius: @radius;
+            border-radius: @radius;
+}
+
+// Single corner border radius
+.border-top-left-radius(@radius) {
+    -webkit-border-top-left-radius: @radius;
+        -moz-border-radius-topleft: @radius;
+            border-top-left-radius: @radius;
+}
+.border-top-right-radius(@radius) {
+    -webkit-border-top-right-radius: @radius;
+        -moz-border-radius-topright: @radius;
+            border-top-right-radius: @radius;
+}
+.border-bottom-right-radius(@radius) {
+    -webkit-border-bottom-right-radius: @radius;
+        -moz-border-radius-bottomright: @radius;
+            border-bottom-right-radius: @radius;
+}
+.border-bottom-left-radius(@radius) {
+    -webkit-border-bottom-left-radius: @radius;
+        -moz-border-radius-bottomleft: @radius;
+            border-bottom-left-radius: @radius;
+}
+
+// Drop shadows
+.box-shadow(@shadow) {
+    -webkit-box-shadow: @shadow;
+       -moz-box-shadow: @shadow;
+            box-shadow: @shadow;
+}
+
+// Text shadows
+.text-shadow(@shadow) {
+    -webkit-text-shadow: @shadow;
+       -moz-text-shadow: @shadow;
+            text-shadow: @shadow;
+}
+
+// Transitions
+.transition(@property: all, @duration: 400ms, @function: linear) {
+    -webkit-transition: @property @duration @function;
+       -moz-transition: @property @duration @function;
+         -o-transition: @property @duration @function;
+            transition: @property @duration @function;
+}
+
+
+// Transformations
+.transform(@transform) {
+    -webkit-transform: @transform;
+       -moz-transform: @transform;
+        -ms-transform: @transform;
+         -o-transform: @transform;
+            transform: @transform;
+}
+.rotate(@degrees) {
+    -webkit-transform: rotate(@degrees);
+       -moz-transform: rotate(@degrees);
+        -ms-transform: rotate(@degrees);
+         -o-transform: rotate(@degrees);
+            transform: rotate(@degrees);
+}
+.scale(@ratio) {
+    -webkit-transform: scale(@ratio);
+       -moz-transform: scale(@ratio);
+        -ms-transform: scale(@ratio);
+         -o-transform: scale(@ratio);
+            transform: scale(@ratio);
+}
+.translate(@x, @y) {
+    -webkit-transform: translate(@x, @y);
+       -moz-transform: translate(@x, @y);
+        -ms-transform: translate(@x, @y);
+         -o-transform: translate(@x, @y);
+            transform: translate(@x, @y);
+}
+.skew(@x, @y) {
+    -webkit-transform: skew(@x, @y);
+       -moz-transform: skew(@x, @y);
+        -ms-transform: skewX(@x) skewY(@y); // See https://github.com/twitter/bootstrap/issues/4885
+         -o-transform: skew(@x, @y);
+            transform: skew(@x, @y);
+    -webkit-backface-visibility: hidden; // See https://github.com/twitter/bootstrap/issues/5319
+}
+.translate3d(@x, @y, @z) {
+    -webkit-transform: translate3d(@x, @y, @z);
+       -moz-transform: translate3d(@x, @y, @z);
+         -o-transform: translate3d(@x, @y, @z);
+            transform: translate3d(@x, @y, @z);
+}
+
+.transform-origin (@x:center, @y:center) {
+    -webkit-transform-origin: @x @y;
+    -moz-transform-origin:    @x @y;
+    -ms-transform-origin:     @x @y;
+    -o-transform-origin:      @x @y;
+}
+
+// Backface visibility
+// Prevent browsers from flickering when using CSS 3D transforms.
+// Default value is "visible", but can be changed to "hidden"
+// See git pull https://github.com/dannykeane/bootstrap.git backface-visibility for examples
+.backface-visibility(@visibility){
+    -webkit-backface-visibility: @visibility;
+       -moz-backface-visibility: @visibility;
+            backface-visibility: @visibility;
+}
+
+// Background clipping
+// Heads up: FF 3.6 and under need "padding" instead of "padding-box"
+.background-clip(@clip) {
+    -webkit-background-clip: @clip;
+       -moz-background-clip: @clip;
+            background-clip: @clip;
+}
+
+// Background sizing
+.background-size(@size) {
+    -webkit-background-size: @size;
+       -moz-background-size: @size;
+         -o-background-size: @size;
+            background-size: @size;
+}
+
+// Box sizing
+.box-sizing(@boxmodel) {
+    -webkit-box-sizing: @boxmodel;
+       -moz-box-sizing: @boxmodel;
+            box-sizing: @boxmodel;
+}
+
+// User select
+// For selecting text on the page
+.user-select(@select) {
+    -webkit-user-select: @select;
+       -moz-user-select: @select;
+        -ms-user-select: @select;
+         -o-user-select: @select;
+            user-select: @select;
+}
+
+// Text Overflow ellipsis
+.text-overflow(@width: 100%) {
+    width: @width;
+    text-overflow: ellipsis;
+    overflow: hidden;
+}
+
+// White & Gray horizontal separator
+.shade-separator(@top) when (@top >= 1) {
+    -webkit-box-shadow: 0 -1px 0 #828282;
+    -moz-box-shadow: 0 -1px 0 #828282;
+    box-shadow: 0 -1px 0 #828282;
+    border-top: 1px solid #fff;
+}
+.shade-separator(@top) when (@top < 0) {
+    -webkit-box-shadow: 0 1px 0 #828282;
+    -moz-box-shadow: 0 1px 0 #828282;
+    box-shadow: 0 1px 0 #828282;
+    border-bottom: 1px solid #fff;
+}
+// White & Gray horizontal separator
+.shade-separator-h(@left) when (@left >= 1) {
+    -webkit-box-shadow: -1px 0px 0 #828282;
+    -moz-box-shadow: -1px 0 0 #828282;
+    box-shadow: -1px 0 0 #828282;
+    border-left: 1px solid #fff;
+}
+.shade-separator-h(@left) when (@left < 0) {
+    -webkit-box-shadow: 1px 0 0 #828282;
+    -moz-box-shadow: 1px 0 0 #828282;
+    box-shadow: 1px 0 0 #828282;
+    border-right: 1px solid #fff;
+}
+
+// Top->Bottom gradient
+.top-bottom-gradient(@start, @end) {
+    background: -moz-linear-gradient(top,  @start 0%, @end 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, @start), color-stop(100%, @end)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(top,  @start 0%, @end 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(top,  @start 0%, @end 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(top,  @start 0%, @end 100%); /* IE10+ */
+    background: linear-gradient(to bottom,  @start 0%, @end 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=argb(@start), endColorstr=argb(@end),GradientType=0 ); /* IE6-9 */
+
+    background-repeat: no-repeat;
+}
+
+// Left->Right gradient
+.left-right-gradient(@start, @end) {
+    background: @start; /* Old browsers */
+    background: -moz-linear-gradient(left,  @start 0%, @end 100%); /* FF3.6+ */
+    background: -webkit-gradient(linear, left top, right top, color-stop(0%,@start), color-stop(100% ,@end)); /* Chrome,Safari4+ */
+    background: -webkit-linear-gradient(left,  @start 0% ,@end 100%); /* Chrome10+,Safari5.1+ */
+    background: -o-linear-gradient(left,  @start 0% ,@end 100%); /* Opera 11.10+ */
+    background: -ms-linear-gradient(left,  @start 0% ,@end 100%); /* IE10+ */
+    background: linear-gradient(to right,  @start 0% ,@end 100%); /* W3C */
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr=argb(@start), endColorstr=argb(@end),GradientType=1 ); /* IE6-9 */
+
+    background-repeat: no-repeat;
+}
+
+// White -> Gray gradient fill
+.white-gray-gradient {
+    .top-bottom-gradient(#eaeced, #f7f9fa);
+}
+// Gray -> White gradient fill
+.gray-white-gradient {
+    .top-bottom-gradient(#f4f4f4, #eaeced);
+}
+
+.generate-columns(@n, @i: 1) when (@i =< @n) {
+    @name: @i * 100 / @n;
+    .grid-col-@{name} {
+        width: (@i * 100% / @n);
+        .grid-col;
+    }
+
+    .generate-columns(@n, (@i + 1));
+}
+
+// Animation
+.animation(@name, @time, @type) {
+    animation: @name @time @type;
+    -webkit-animation: @name @time @type;
+}
+
+// Rotation
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
+
+@-webkit-keyframes rotation {
+    from {
+        transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        -webkit-transform: rotate(360deg);
+    }
+}
